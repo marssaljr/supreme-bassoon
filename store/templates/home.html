@@ -1,29 +1,94 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-<head>
+  {% block 'head' %}
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="{% static 'css/home.css' %}">
-  	<script src="https://kit.fontawesome.com/2ce8403e7e.js" crossorigin="anonymous"></script>
-  	<script src="https://unpkg.com/phosphor-icons"></script>
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">  	
 	<title>Home</title>
-</head>
-<body>
-	<header>
-		<div class="header">
-			<div><i class="ph-pill"></i></div>
-			<div class="search">
-				<form>
-					<i class="ph-magnifying-glass"></i>
-					<input type="text" />
-				</form>
-			</div>
-			<div><i class="ph-shopping-cart-simple"></i></div>
-		</div>
-	</header>
-	<main></main>
-	<footer></footer>
-</body>
-</html>
+  {% endblock %}
+
+	{% block 'main' %}
+	 <header class="header">
+    <img src="https://unsplash.com/photos/8kqtv6dMNSg/download?ixid=MnwxMjA3fDF8MXxhbGx8MXx8fHx8fDJ8fDE2NTM2ODE2NDE&force=true&w=1920"/>    
+  </header>
+  <div class="intro-container">
+    <div class="intro">      
+      <p>sinônimo de economia e qualidade. Agora mais pertinho de você!</p>
+    </div>
+  </div>
+  <div class="products-container">
+		div.
+      <h2>O remedio que voce procura</h2>
+
+      <form class="search" role="search">
+        <input class="input-search" type="search" id="q" name="q" placeholder="Search" aria-label="Search">
+        <button class="button" type="submit">Search</button>
+      </form>
+
+      <div class="grid">
+      {% for pill in medicines %}
+      <div class="pill">
+        <img src="{{ pill.image.url }}" class="card-img-top" alt="{{ pill.image }}">
+        <div class="pill-body">
+          <h4>{{ pill.name }}</h4>
+          <p class="pill-text"><strike>R$ {{pill.price|add:5 }}</strike> <b>R$ {{pill.price}}</b></p>
+        </div>
+        <button class="button-buy" onclick="location.href='{% url 'cart_add' pill.id %}'" >Adicionar ao Carrinho</button>
+      </div>
+      {% endfor %}
+      </div>
+      <br>
+    </div>
+    <div class="text-middle">
+        <img src="https://unsplash.com/photos/ZHys6xN7sUE/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OXx8cGhhcm1hY2lzdHxlbnwwfHx8fDE2NTM2ODgzNDA&force=true&w=1920" class="img-middle"/>
+        <p>Ei, você aí no celular, já baixou o nosso aplicativo?<br>
+        Você pode consultar preços, fazer pedidos e ainda falar com o nosso serviço de atendimento ao consumidor.<br> Não perca mais tempo, na sua primeira compra a entrega é gratuita</p>
+      </div>
+    <div class="review-container">      
+      <h2 class="display-5">Veja a opiniao dos clientes</h2>
+      <div class="reviews">
+        <div class="review">
+        <img src="https://github.com/farnetani.png" class="card-img-top" alt="x"/>
+        <div class="review-body">
+          <h3>Farnetani</h3>
+          <p class="review-text">Com estacionamento próprio  e uma gama enorme de medicamentos com funcionários educados.</p>
+        </div><!-- review-body -->
+        </div>
+
+        <div class="review">
+          <img src="https://lh3.googleusercontent.com/a-/AOh14GhOjxxAlbNwmfLyfrYgz6Ye7r0ve4uY8CdJjXO9-w=s200-c0x00000000-cc-rp-ba4" class="card-img-top" alt="x"/>
+          <div class="review-body">
+            <h3>Juliana Machado</h3>
+            <p class="review-text">Sempre apresentam produtos de qualidade, atendimento impecável e preço razoável.</p>
+          </div><!-- review-body -->
+        </div>
+
+        <div class="review">
+          <img src="https://lh3.googleusercontent.com/a-/AOh14GhjzjaS7a1ozxmxp5otrV0vNTq9byalfBmoRaTBjnk=s200-c0x00000000-cc-rp-ba4" class="card-img-top" alt="x"/>
+          <div class="review-body">
+            <h3>Augusto Teruel</h3>
+            <p class="review-text">"Bons produtos e equipe muito simpática, sempre fui e sou muito bem tratado."</p>
+          </div><!-- review-body -->
+        </div>     
+
+        <div class="review">
+          <img src="https://lh3.googleusercontent.com/a-/AOh14GjqN-3j8RRTld5cE5ruAEgOVMmvBYojU3ufqnM6=s200-c0x00000000-cc-rp" class="card-img-top" alt="x"/>
+          <div class="review-body">
+            <h3>Rapha Breviário</h3>
+            <p class="review-text">"Os preços são bem acessíveis, com parcelamento em até 6x no cartão."</p>
+          </div><!-- review-body -->
+        </div>    
+      </div><!-- reviews -->
+
+      <div class="feedback">
+        <h2>Deixe seu feedback!</h2>
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Deixe seu comentario aqui" id="floatingTextarea2" style="height: 100px"></textarea>
+          <button class="btn-form">Enviar Feedback</button>
+        </div>        
+      </div>
+
+    </div>
+	{% endblock %}	

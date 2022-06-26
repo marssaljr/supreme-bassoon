@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="color-scheme" content="dark light">
+		<link rel="stylesheet" href="{% static 'css/globals.css' %}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/2ce8403e7e.js" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/phosphor-icons"></script>
+		{% block 'head' %}{% endblock %}
+	</head>
+	<body>
+		<nav class="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand disabled">Elo<strong>Farma</strong></a>
+          {% if user.is_authenticated %}
+          {% if request.session.cart|length != 0 %}
+          <div>          
+            <button class="btn btn-outline-warning mb-2" onclick="location.href='{% url 'cart_detail' %}'"><i class="fa-solid fa-cart-shopping"></i></button>
+          {% endif %}
+          <!-- <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" id="q" name="q" placeholder="Paracetamol..." aria-label="Search">
+            <button class="btn btn-outline-warning" type="submit">Buscar</button>
+          </form>       -->   
+            <div>{{ user }}</div>
+          </div>
+          {% endif %}
+        </div>
+      </nav>
+		{% block 'main' %}
+		{% endblock %}
+    <footer><a href="https://github.com/marssaljr">Made with ❤️ by @Marssaljr</a></footer>
+</body>
+</html>

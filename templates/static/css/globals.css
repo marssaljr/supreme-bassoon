@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  color-scheme: dark light;
+}
+
+body {
+  font-family: "Inter", 'monospace', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: white;
+    background-color: #0a0a0a;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: #555;
+    background-color: #E7E7E7;
+  }
+}
+
+.navbar {
+  height: 80px;
+  padding: 20px;
+  font-size: 2rem;
+}
+
+footer {
+  height: 20%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  background: #FF5733;
+}
+
+footer a {
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+}

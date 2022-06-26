@@ -1,0 +1,17 @@
+{% if user.is_authenticated %}
+<li class="right"><i class="fa fa-user-circle" aria-hidden="true"></i></li>
+<li class="right"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
+{% endif %}
+
+
+
+{% for pill in medicines %}
+<div class="card">
+<img src="{{ pill.images.all.0 }}" alt="{{ pill.name }}" class="img-responsive">
+<div class="card-body">
+<h5 class="card-title">{{ pill.name }}</h5>
+<p class="card-text"><strike>R$ {{pill.price}}</strike> <b>R$ {{pill.price}}</b></p>
+<a href="#" class="btn btn-outlined-success">Add to Cart</a>
+</div>
+</div>
+{% endfor %}
