@@ -1,5 +1,5 @@
 $primary-light: #FF5733;
-$primary: #FF3400;
+$primary: #FFa741;
 
 .header {
   height: auto;
@@ -104,11 +104,24 @@ $primary: #FF3400;
     margin-bottom: 5em;
 
     .search {
-      input {
-        border-radius: 4px;
-        border: none;
-        padding: 4px;    
-      }
+				display: flex;
+				flex-wrap:nowrap;
+				input {
+						width: 80%;
+						border-radius: 4px;
+						border-bottom-right-radius:0;
+						border-top-right-radius:0;
+						border: none;
+						padding: 0.5em;
+				}
+				button {
+						    width: 10%;
+    margin-left: 0;
+    border: none;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 0.5em;
+				}
     }
   }
 
@@ -145,6 +158,11 @@ $primary: #FF3400;
       }
     }
   }
+	iframe {
+			width: 100%;
+			border-radius: 4px;
+			margin-bottom: 3em;
+	}
 }
 
 .feedback {
@@ -171,7 +189,7 @@ $primary: #FF3400;
     }
     .btn-form {
       background: $primary;
-      border: 2px solid;
+      /*border: 2px solid;*/
       padding: 1rem;
       font-weight: bold;
       transition: all ease 300ms;

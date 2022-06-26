@@ -11,7 +11,10 @@
 
 	{% block 'main' %}
 	 <header class="header">
-    <img src="https://unsplash.com/photos/8kqtv6dMNSg/download?ixid=MnwxMjA3fDF8MXxhbGx8MXx8fHx8fDJ8fDE2NTM2ODE2NDE&force=true&w=1920"/>    
+     <!--<img src="https://unsplash.com/photos/8kqtv6dMNSg/download?ixid=MnwxMjA3fDF8MXxhbGx8MXx8fHx8fDJ8fDE2NTM2ODE2NDE&force=true&w=1920"/>-->
+		<img srcset="https://unsplash.com/photos/gGIxh0iBx2I/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2MjYzMTIy&force=true&w=640 640w, https://unsplash.com/photos/gGIxh0iBx2I/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2MjYzMTIy&force=true&w=1920" sizes="(max-width: 600px) 640px, 800px" src="https://unsplash.com/photos/gGIxh0iBx2I/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU2MjYzMTIy&force=true&w=1920"
+				 alt="Foto de um medico mostrando remedios" loading="lazy"/>
+				 
   </header>
   <div class="intro-container">
     <div class="intro">      
@@ -19,12 +22,11 @@
     </div>
   </div>
   <div class="products-container">
-		div.
       <h2>O remedio que voce procura</h2>
 
       <form class="search" role="search">
         <input class="input-search" type="search" id="q" name="q" placeholder="Search" aria-label="Search">
-        <button class="button" type="submit">Search</button>
+        <button class="button" type="submit"><i class="ph-magnifying-glass"></i></button>
       </form>
 
       <div class="grid">
@@ -35,7 +37,7 @@
           <h4>{{ pill.name }}</h4>
           <p class="pill-text"><strike>R$ {{pill.price|add:5 }}</strike> <b>R$ {{pill.price}}</b></p>
         </div>
-        <button class="button-buy" onclick="location.href='{% url 'cart_add' pill.id %}'" >Adicionar ao Carrinho</button>
+       <button class="button-buy" onclick="location.href='{% url 'cart_add' pill.id %}'" >Adicionar ao Carrinho</button>
       </div>
       {% endfor %}
       </div>
@@ -89,6 +91,7 @@
           <button class="btn-form">Enviar Feedback</button>
         </div>        
       </div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14842.464840978686!2d-45.46142929218753!3d-21.561857099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ca928ef97e6a1b%3A0x9391904f36b8950b!2sNatus%20Farma%20Varginha%201!5e0!3m2!1sen!2sbr!4v1656265355387!5m2!1sen!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     </div>
 	{% endblock %}	

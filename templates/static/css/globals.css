@@ -32,12 +32,17 @@ body {
   font-size: 2rem;
 }
 
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+}
+
 footer {
   height: 20%;
   padding: 20px;
   display: flex;
   justify-content: center;
-  background: #FF5733;
+  background: #FFa741;
 }
 
 footer a {

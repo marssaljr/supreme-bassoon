@@ -9,7 +9,7 @@
 }
 
 $primary-light: #FF5733;
-$primary: #FF3400;
+$primary: #FFa741;
 
 body {
 	font-family: "Inter", 'monospace', sans-serif;
@@ -29,13 +29,17 @@ body {
 	padding: 20px;
 	font-size: 2rem;
 }
+.container-fluid {
+		display: flex;
+		justify-content: space-between;
+}
 
 footer {
     height: 20%;
     padding: 20px;
     display: flex;
     justify-content: center;
-    background: $primary-light;
+    background: $primary;
     a {
     	text-decoration: none;
     	color: #555;
