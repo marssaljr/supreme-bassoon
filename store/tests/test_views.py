@@ -35,6 +35,7 @@ class StoreViewsTestCase(TestCase):
 		self.client.force_login(User.objects.get_or_create(username='test')[0])
 		response = self.client.get(url)
 		self.assertEqual(response.status_code, 200)
+		self.assertTemplateUsed(response, 'cart_detail.html')
 	def test_cart_add_item(self):
 		id=self.product.id
 		url=reverse('cart_add', args=(id,))
@@ -52,13 +53,13 @@ class StoreViewsTestCase(TestCase):
 		self.client.force_login(User.objects.get_or_create(username='test')[0])
 		response1=self.client.get(url)
 		response2=self.client.get(url)
-		self.assertEqual(len(self.client.session['cart']),1)
+		self.assertEqual(len(self.client.session.get('cart')),1)
 	def test_item_increment(self):
 		id=self.product.id
 		url=reverse('cart_inc', args=(id,))
 		self.client.force_login(User.objects.get_or_create(username='test')[0])
 		response=self.client.get(url)
-		self.assertEqual(len(self.client.session['cart']),1)
+		self.assertEqual(len(self.client.session.get('cart')),1)
 	def test_item_decrement(self):
 		id=self.product.id
 		self.client.force_login(User.objects.get_or_create(username='test')[0])
@@ -80,6 +81,12 @@ class StoreViewsTestCase(TestCase):
 		self.assertEqual(response.url, '/cart/cart-detail/')
 		product=self.client.session.get('cart')
 		self.assertEqual(product, {})
+	def test_item_decrement_fail(self):
+		id=self.product.id
+		# self.client.force_login(User.objects.get_or_create(username='test')[0])
+		# url=reverse('cart_dec', args=(id,))
+		# response=self.client.get(url)
+		# quantity=self.client.session.get('
 
 	# def test_cart_quantity_add(self):
 	# 	id=self.product.id
