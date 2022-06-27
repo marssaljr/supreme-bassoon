@@ -28,14 +28,15 @@ class Cart(object):
 								'image': product.image.url
 						}
 				else:
-						newItem=True
+						#newItem=True
 						for k,v in self.cart.items():
 								if k==str(product.id):
 										v['quantity']=v['quantity']+1
-										newItem=False
+										#newItem=False
 										self.save()
 										break
-						if newItem==True:
+						"""if newItem==True:
+								self.add(product, quantity=1, action=None)								
 								self.cart[product.id]={
 										'userid':	self.request,
 										'product_id': product.id,
@@ -44,6 +45,7 @@ class Cart(object):
 										'price': str(product.price),
 										'image': product.image.url
 								}
+						"""
 				self.save()
 
 		def save(self):
@@ -66,7 +68,7 @@ class Cart(object):
 					if k==str(product.id):
 							v['quantity']=v['quantity']-1
 							if(v['quantity']<1):
-									return redirect('cart:cart_detail')
+									return redirect('cart_detail')
 							self.save()
 							break
 					else:

@@ -16,6 +16,26 @@ def cart_add(request, id):
     return redirect("home")
 
 @login_required(login_url="/users/login")
+def item_inc(request, id):
+    cart = Cart(request)
+    product = Product.objects.get(id=id)
+    cart.add(product=product)
+    return redirect("cart_detail")
+
+@login_required(login_url="/users/login")
+def item_dec(request, id):
+    cart = Cart(request)
+    product = Product.objects.get(id=id)
+    cart.decrement(product=product)
+    return redirect("cart_detail")
+@login_required(login_url="/users/login")
+def item_rem(request, id):
+    cart = Cart(request)
+    product = Product.objects.get(id=id)
+    cart.remove(product)
+    return redirect("cart_detail")
+
+@login_required(login_url="/users/login")
 def cart_detail(request):
     return render(request, 'cart_detail.html')
 
