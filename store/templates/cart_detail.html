@@ -1,0 +1,16 @@
+{% load cart_tag %}
+
+<h1>Carrinho</h1>
+<p>Quantidade de items: {{request.session.cart|length}}</p>
+
+<div class="products">
+	{% for key,value in request.session.cart.items %}
+		<div class="product">
+			<img class="product-img" src="{{value.image}}" width="120" height="80">
+			<h3>{{value.name}}</h3>
+			<p>Preço: {{value.price}} <br></p>
+			<p>Quantidade: {{value.quantity}}  <br></p>
+			<p>Total: {{ value.price|multiply:value.quantity }}</p>
+		</div>
+{% endfor %}
+</div>

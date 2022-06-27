@@ -22,6 +22,7 @@ INSTALLED_APPS = [
 		'django_sass',
 		'cart',
     'store',
+		'user',
 ]
 CART_SESSION_ID = 'cart'
 

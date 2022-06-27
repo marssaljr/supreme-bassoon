@@ -20,8 +20,8 @@
           <a class="navbar-brand disabled">Elo<strong>Farma</strong></a>
           {% if user.is_authenticated %}
           {% if request.session.cart|length != 0 %}
-          <div>          
-            <button class="btn btn-outline-warning mb-2" onclick="location.href='{% url 'cart_detail' %}'"><i class="fa-solid fa-cart-shopping"></i></button>
+          <div class="user-items">          
+            <button class="cart" onclick="location.href='{% url 'cart_detail' %}'"><i class="ph-shopping-cart"></i>{{request.session.cart|length}}</button>
           {% endif %}
           <!-- <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" id="q" name="q" placeholder="Paracetamol..." aria-label="Search">

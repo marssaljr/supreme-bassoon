@@ -32,6 +32,16 @@ body {
 .container-fluid {
 		display: flex;
 		justify-content: space-between;
+		.user-items {
+				display: flex;
+				flex-wrap:nowrap;
+				gap:1em;
+				.cart {
+						border:none;
+						background:none;
+						cursor:pointer;
+				}
+		}
 }
 
 footer {

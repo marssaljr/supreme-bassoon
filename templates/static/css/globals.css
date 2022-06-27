@@ -37,6 +37,18 @@ body {
   justify-content: space-between;
 }
 
+.container-fluid .user-items {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1em;
+}
+
+.container-fluid .user-items .cart {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 footer {
   height: 20%;
   padding: 20px;

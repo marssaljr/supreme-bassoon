@@ -14,3 +14,13 @@ def cart_add(request, id):
     product = Product.objects.get(id=id)
     cart.add(product=product)
     return redirect("home")
+
+@login_required(login_url="/users/login")
+def cart_detail(request):
+    return render(request, 'cart_detail.html')
+
+@login_required(login_url="/users/login")
+def cart_clear(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect("cart_detail")
