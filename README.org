@@ -1,15 +1,14 @@
-[![codecov](https://codecov.io/gh/marssaljr/supreme-bassoon/branch/main/graph/badge.svg?token=Vq9qCt7eP5)](https://codecov.io/gh/marssaljr/supreme-bassoon)  
-[![Build Status](https://app.travis-ci.com/marssaljr/supreme-bassoon.svg?branch=main)](https://app.travis-ci.com/marssaljr/supreme-bassoon)
+[[https://app.travis-ci.com/marssaljr/supreme-bassoon][travis ]][[https://codecov.io/gh/marssaljr/supreme-bassoon/branch/main/graph/badge.svg?token=Vq9qCt7eP5][codecov]]
 
 * Done
-** DONE Create project
-** DONE Create store app
-** DONE Create cart app
-** DONE Write cart app tests
-** DONE Write store app tests
-** DONE Create user app
-
+*** DONE Create project
+*** DONE Create store app
+*** DONE Create cart app
+*** DONE Write cart app tests
+*** DONE Write store app tests
+*** DONE Create user app
 * TODO
-** TODO Write user app tests
-** TODO Write templates and statics
-** TODO Deploy
+*** TODO Write user app tests
+*** TODO Write templates and statics
+*** TODO Deploy
+
