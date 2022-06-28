@@ -1,4 +1,4 @@
-[[https://app.travis-ci.com/marssaljr/supreme-bassoon.svg?branch=mail]] [[https://codecov.io/gh/marssaljr/supreme-bassoon/branch/main/graph/badge.svg?token=Vq9qCt7eP5]]
+[[https://app.travis-ci.com/marssaljr/supreme-bassoon.svg?branch=main]] [[https://codecov.io/gh/marssaljr/supreme-bassoon/branch/main/graph/badge.svg?token=Vq9qCt7eP5]]
 
 * Done
 *** DONE Create project
