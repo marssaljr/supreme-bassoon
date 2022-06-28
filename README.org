@@ -1,4 +1,9 @@
-[[https://app.travis-ci.com/marssaljr/supreme-bassoon][travis ]][[https://codecov.io/gh/marssaljr/supreme-bassoon/branch/main/graph/badge.svg?token=Vq9qCt7eP5][codecov]]
+#+CAPTION: travis build pass
+#+NAME:   fig:travis
+[[https://app.travis-ci.com/marssaljr/supreme-bassoon]]
+#+CAPTION: coverage of my code
+#+NAME:   fig:codecov
+[[https://codecov.io/gh/marssaljr/supreme-bassoon/branch/main/graph/badge.svg?token=Vq9qCt7eP5]]
 
 * Done
 *** DONE Create project
