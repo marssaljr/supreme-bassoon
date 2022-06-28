@@ -1,6 +1,6 @@
 #+CAPTION: travis build pass
 #+NAME:   fig:travis
-[[https://app.travis-ci.com/marssaljr/supreme-bassoon]]
+[[https://app.travis-ci.com/marssaljr/supreme-bassoon.svg?branch=main]]
 #+CAPTION: coverage of my code
 #+NAME:   fig:codecov
 [[https://codecov.io/gh/marssaljr/supreme-bassoon/branch/main/graph/badge.svg?token=Vq9qCt7eP5]]
