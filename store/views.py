@@ -5,7 +5,12 @@ from .models import Product
 
 # Create your views here.
 def home(request):
-	medicines = Product.objects.all()
+	medicine=request.GET.get('q')
+	if medicine:
+					medicine=medicine.capitalize()
+					medicines=Product.objects.filter(name__icontains=medicine)
+	else:
+					medicines=Product.objects.all()
 	return render(request, 'home.html', {'medicines': medicines})
 
 @login_required(login_url="/users/login")
