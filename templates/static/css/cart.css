@@ -1,0 +1,70 @@
+main {
+  height: 800px;
+}
+
+main .cart-title {
+  margin: 1em;
+}
+
+main .cart-title h1 {
+  font-size: 1.5rem;
+}
+
+.products {
+  margin: 0.5rem;
+  /*border:1px solid rgba(0,0,0,.4);*/
+  border-radius: 4px;
+  height: auto;
+}
+
+.products .product {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  margin: 0.5em;
+  padding: 4px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.products .product img {
+  width: 4em;
+  height: 4em;
+}
+
+.products .product .product-description h3 {
+  font-size: 0.9rem;
+}
+
+.products .product .product-description p {
+  margin: 0.3em;
+}
+
+.products .product .product-description div button {
+  width: 40%;
+  background: none;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  padding: 0.4em;
+  font-size: large;
+  font-weight: bold;
+  transition: 300ms ease all;
+}
+
+@media (prefers-color-scheme: light) {
+  .products .product .product-description div button {
+    color: #555;
+    border: 1px solid #555;
+  }
+}
+
+.products .product .product-description div button:hover {
+  border: none;
+  background: cornflowerblue;
+}
+
+.products .product .product-description div .minus:hover {
+  background: crimson;
+}
