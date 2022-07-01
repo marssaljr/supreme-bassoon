@@ -1,16 +1,44 @@
+{% extends 'base.html' %}
 {% load cart_tag %}
+{% load static %}
 
-<h1>Carrinho</h1>
-<p>Quantidade de items: {{request.session.cart|length}}</p>
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+<title>
+Carrinho
+</title>
+{% endblock %}
+{% block 'main' %}
+<main>
+	<div class="cart-title">
+		<h1>Carrinho</h1>
+		<p>Quantidade de items: {{request.session.cart|length}}</p>
+	</div>
 
-<div class="products">
-	{% for key,value in request.session.cart.items %}
-		<div class="product">
-			<img class="product-img" src="{{value.image}}" width="120" height="80">
-			<h3>{{value.name}}</h3>
-			<p>Preço: {{value.price}} <br></p>
-			<p>Quantidade: {{value.quantity}}  <br></p>
-			<p>Total: {{ value.price|multiply:value.quantity }}</p>
-		</div>
-{% endfor %}
-</div>
+	<div class="products">
+		{% for key,value in request.session.cart.items %}
+			<div class="product">
+				<img class="product-img"
+						 src="{{value.image}}"
+						 width="120"
+						 height="80">
+				<div class="product-description">
+					<div>
+						<h3>{{value.name}}</h3>
+						<p>R$ {{value.price}} <br></p>
+						<p>
+							<i class="ph-shopping-cart-simple"></i>
+							{{value.quantity}}  <br>
+						</p>
+						<p>Total: {{ value.price|multiply:value.quantity }}</p>
+					</div>
+					<div>
+						<button onclick="location.href='{% url 'cart_inc' value.product_id %}'" >+</button>
+						<button onclick="location.href='{% url 'cart_dec' value.product_id %}'" class="minus">-</button>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</main>
+{% endblock %}
