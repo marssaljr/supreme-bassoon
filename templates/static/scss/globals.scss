@@ -25,13 +25,22 @@ body {
 }
 
 .navbar {
-	height: 80px;
-	padding: 20px;
-	font-size: 2rem;
+	height: 4rem;
+	padding: 0.6em;
+	font-size: 1.6rem;
+	@media (prefers-color-scheme: dark) {
+			a {
+				color: whitesmoke;
+			}
+	}
 }
 .container-fluid {
 		display: flex;
+		flex-wrap: nowrap;
 		justify-content: space-between;
+		.navbar-brand {
+				font-size: 1.6rem;
+		}
 		.user-items {
 				display: flex;
 				flex-wrap:nowrap;
