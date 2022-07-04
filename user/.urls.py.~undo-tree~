@@ -1,0 +1,14 @@
+(undo-tree-save-format-version . 1)
+"7ba90806ec750924d9c0c1eff8f00aaf7dff919e"
+[nil nil nil nil (25282 18899 389941 697000) 0 nil]
+([nil current ((1 . 270) (#("from django.urls import path
+from . import views
+
+urlpatterns = [
+		path('register', views.register, name='register'),
+		path('login', views.login, name='login'),
+		path('logout', views.logout, name='logout'),
+		path('profile', views.profile, name='profile')
+]
+" 0 4 (fontified t face font-lock-keyword-face) 4 17 (fontified t) 17 23 (fontified t face font-lock-keyword-face) 23 29 (fontified t) 29 33 (fontified t face font-lock-keyword-face) 33 36 (fontified t) 36 42 (fontified t face font-lock-keyword-face) 42 50 (fontified t) 50 61 (fontified t face font-lock-variable-name-face) 61 64 (fontified t) 64 65 (fontified t face (rainbow-delimiters-depth-1-face)) 65 72 (fontified t) 72 73 (fontified t face (rainbow-delimiters-depth-2-face)) 73 83 (fontified t face font-lock-string-face) 83 106 (fontified t) 106 116 (fontified t face font-lock-string-face) 116 117 (fontified t face (rainbow-delimiters-depth-2-face)) 117 125 (fontified t) 125 126 (fontified t face (rainbow-delimiters-depth-2-face)) 126 133 (fontified t face font-lock-string-face) 133 153 (fontified t) 153 160 (fontified t face font-lock-string-face) 160 161 (fontified t face (rainbow-delimiters-depth-2-face)) 161 169 (fontified t) 169 170 (fontified t face (rainbow-delimiters-depth-2-face)) 170 178 (fontified t face font-lock-string-face) 178 199 (fontified t) 199 207 (fontified t face font-lock-string-face) 207 208 (fontified t face (rainbow-delimiters-depth-2-face)) 208 216 (fontified t) 216 217 (fontified t face (rainbow-delimiters-depth-2-face)) 217 226 (fontified t face font-lock-string-face) 226 248 (fontified t) 248 257 (fontified t face font-lock-string-face) 257 258 (fontified t face (rainbow-delimiters-depth-2-face)) 258 259 (fontified t) 259 260 (fontified t face (rainbow-delimiters-depth-1-face)) 260 261 (fontified t)) . 1) (undo-tree-id0 . -29) (undo-tree-id1 . -66) (undo-tree-id2 . -118) (undo-tree-id3 . -119) (undo-tree-id4 . -162) (undo-tree-id5 . -163) (undo-tree-id6 . -209) (undo-tree-id7 . -210) (undo-tree-id8 . -258) (undo-tree-id9 . -261) (undo-tree-id10 . -261) (undo-tree-id11 . -260) (undo-tree-id12 . -261) (t 25279 15829 873871 561000)) nil (25282 18899 389924 798000) 0 nil])
+nil

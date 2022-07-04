@@ -1,0 +1,91 @@
+(undo-tree-save-format-version . 1)
+"0339c593864e7530625cc392b5badea7c45122ae"
+[nil nil nil nil (25282 19395 733695 552000) 0 nil]
+([nil nil ((1 . 2622) (#("from decimal import Decimal
+from django.conf import settings
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+
+class Cart(object):
+		def __init__(self, request):
+				self.request=request
+				self.session=request.session
+				cart=self.session.get(settings.CART_SESSION_ID)
+				if not cart:
+						# salva um carrinho vazio na sessao
+						cart=self.session[settings.CART_SESSION_ID]={}
+				self.cart=cart
+		def add(self, product, quantity=1, action=None):
+				\"\"\"
+				Adiciona um produto ao carrinho, ou atualiza sua quantidade.
+				\"\"\"
+				id=product.id
+				newItem=True
+				if str(product.id) not in self.cart.keys():
+						self.cart[product.id]={
+								'userid': self.request.user.id,
+								'product_id': id,
+								'name': product.name,
+								'quantity': 1,
+								'price': str(product.price),
+								'image': product.image.url
+						}
+				else:
+						#newItem=True
+						for k,v in self.cart.items():
+								if k==str(product.id):
+										v['quantity']=v['quantity']+1
+										#newItem=False
+										self.save()
+										break
+						\"\"\"if newItem==True:
+								self.add(product, quantity=1, action=None)								
+								self.cart[product.id]={
+										'userid':	self.request,
+										'product_id': product.id,
+										'name': product.name,
+										'quantity': 1,
+										'price': str(product.price),
+										'image': product.image.url
+								}
+						\"\"\"
+				self.save()
+
+		def save(self):
+				# atualiza a sessao do carrinho
+				self.session[settings.CART_SESSION_ID]=self.cart
+				# marca a sessao como modificado para ter certeza que esta salvo.
+				self.session.modified=True
+
+		def remove(self, product):
+				\"\"\"
+				Remove um produto do carrinho
+				\"\"\"
+				product_id=str(product.id)
+				if(product_id in self.cart):
+						del self.cart[product_id]
+						self.save()
+
+		def decrement(self, product):
+				for k,v in self.cart.items():
+					if k==str(product.id):
+							v['quantity']=v['quantity']-1
+							if(v['quantity']<1):
+									return redirect('cart_detail')
+							self.save()
+							break
+					else:
+							print(\"Something's Wrong\")
+						
+		def clear(self):
+				# limpa o carrinho
+				self.session[settings.CART_SESSION_ID]={}
+				self.session.modified=True
+" 0 4 (fontified t face font-lock-keyword-face) 4 13 (fontified t) 13 19 (fontified t face font-lock-keyword-face) 19 28 (fontified t) 28 32 (fontified t face font-lock-keyword-face) 32 45 (fontified t) 45 51 (fontified t face font-lock-keyword-face) 51 61 (fontified t) 61 65 (fontified t face font-lock-keyword-face) 65 78 (fontified t) 78 84 (fontified t face font-lock-keyword-face) 84 98 (fontified t) 98 102 (fontified t face font-lock-keyword-face) 102 120 (fontified t) 120 126 (fontified t face font-lock-keyword-face) 126 145 (fontified t) 145 150 (fontified t face font-lock-keyword-face) 150 151 (fontified t) 151 155 (fontified t face font-lock-type-face) 155 156 (fontified t face (rainbow-delimiters-depth-1-face)) 156 162 (fontified t face font-lock-builtin-face) 162 163 (fontified t face (rainbow-delimiters-depth-1-face)) 163 167 (fontified t) 167 170 (fontified t face font-lock-keyword-face) 170 171 (fontified t) 171 179 (fontified t face font-lock-function-name-face) 179 180 (fontified t face (rainbow-delimiters-depth-1-face)) 180 184 (fontified t face font-lock-keyword-face) 184 193 (fontified t) 193 194 (fontified t face (rainbow-delimiters-depth-1-face)) 194 200 (fontified t) 200 204 (fontified t face font-lock-keyword-face) 204 205 (fontified t) 205 212 (fontified t face font-lock-variable-name-face) 212 225 (fontified t) 225 229 (fontified t face font-lock-keyword-face) 229 230 (fontified t) 230 237 (fontified t face font-lock-variable-name-face) 237 258 (fontified t) 258 262 (fontified t face font-lock-variable-name-face) 262 263 (fontified t) 263 267 (fontified t face font-lock-keyword-face) 267 279 (fontified t) 279 280 (fontified t face (rainbow-delimiters-depth-1-face)) 280 304 (fontified t) 304 305 (fontified t face (rainbow-delimiters-depth-1-face)) 305 310 (fontified t) 310 312 (fontified t face font-lock-keyword-face) 312 313 (fontified t) 313 316 (fontified t face font-lock-keyword-face) 316 317 (fontified t) 317 321 (fontified t face font-lock-variable-name-face) 321 329 (fontified t) 329 331 (fontified t face font-lock-comment-delimiter-face) 331 365 (fontified t face font-lock-comment-face) 365 376 (fontified t) 376 380 (fontified t face font-lock-keyword-face) 380 381 (fontified t) 381 388 (fontified t face font-lock-variable-name-face) 388 389 (fontified t face (rainbow-delimiters-depth-1-face)) 389 398 (fontified t) 398 413 (fontified t face font-lock-variable-name-face) 413 414 (fontified t face (rainbow-delimiters-depth-1-face)) 414 415 (fontified t) 415 416 (fontified t face (rainbow-delimiters-depth-1-face)) 416 417 (fontified t face (rainbow-delimiters-depth-1-face)) 417 422 (fontified t) 422 426 (fontified t face font-lock-keyword-face) 426 427 (fontified t) 427 431 (fontified t face font-lock-variable-name-face) 431 439 (fontified t) 439 442 (fontified t face font-lock-keyword-face) 442 443 (fontified t) 443 446 (fontified t face font-lock-function-name-face) 446 447 (fontified t face (rainbow-delimiters-depth-1-face)) 447 451 (fontified t face font-lock-keyword-face) 451 481 (fontified t) 481 485 (fontified t face font-lock-constant-face) 485 486 (fontified t face (rainbow-delimiters-depth-1-face)) 486 492 (fontified t) 492 494 (fontified t face font-lock-doc-face) 494 495 (syntax-table (15) fontified t face font-lock-doc-face) 495 565 (fontified t face font-lock-doc-face) 565 566 (fontified t syntax-table (15) face font-lock-doc-face) 566 568 (fontified t face font-lock-doc-face) 568 573 (fontified t) 573 575 (fontified t face font-lock-builtin-face) 575 584 (fontified t) 584 586 (fontified t face font-lock-builtin-face) 586 599 (fontified t) 599 603 (fontified t face font-lock-constant-face) 603 608 (fontified t) 608 610 (fontified t face font-lock-keyword-face) 610 611 (fontified t) 611 614 (fontified t face font-lock-builtin-face) 614 615 (fontified t face (rainbow-delimiters-depth-1-face)) 615 623 (fontified t) 623 625 (fontified t face font-lock-builtin-face) 625 626 (fontified t face (rainbow-delimiters-depth-1-face)) 626 627 (fontified t) 627 630 (fontified t face font-lock-keyword-face) 630 631 (fontified t) 631 633 (fontified t face font-lock-keyword-face) 633 634 (fontified t) 634 638 (fontified t face font-lock-keyword-face) 638 648 (fontified t) 648 649 (fontified t face (rainbow-delimiters-depth-1-face)) 649 650 (fontified t face (rainbow-delimiters-depth-1-face)) 650 658 (fontified t) 658 662 (fontified t face font-lock-keyword-face) 662 667 (fontified t) 667 668 (fontified t face (rainbow-delimiters-depth-1-face)) 668 676 (fontified t) 676 678 (fontified t face font-lock-builtin-face) 678 679 (fontified t face (rainbow-delimiters-depth-1-face)) 679 680 (fontified t) 680 681 (fontified t face (rainbow-delimiters-depth-1-face)) 681 690 (fontified t) 690 698 (fontified t face font-lock-string-face) 698 700 (fontified t) 700 704 (fontified t face font-lock-keyword-face) 704 718 (fontified t) 718 720 (fontified t face font-lock-builtin-face) 720 730 (fontified t) 730 742 (fontified t face font-lock-string-face) 742 744 (fontified t) 744 746 (fontified t face font-lock-builtin-face) 746 756 (fontified t) 756 762 (fontified t face font-lock-string-face) 762 786 (fontified t) 786 796 (fontified t face font-lock-string-face) 796 809 (fontified t) 809 816 (fontified t face font-lock-string-face) 816 818 (fontified t) 818 821 (fontified t face font-lock-builtin-face) 821 822 (fontified t face (rainbow-delimiters-depth-2-face)) 822 835 (fontified t) 835 836 (fontified t face (rainbow-delimiters-depth-2-face)) 836 846 (fontified t) 846 853 (fontified t face font-lock-string-face) 853 879 (fontified t) 879 880 (fontified t face (rainbow-delimiters-depth-1-face)) 880 885 (fontified t) 885 889 (fontified t face font-lock-keyword-face) 889 897 (fontified t) 897 898 (fontified t face font-lock-comment-delimiter-face) 898 911 (fontified t face font-lock-comment-face) 911 917 (fontified t) 917 920 (fontified t face font-lock-keyword-face) 920 925 (fontified t) 925 927 (fontified t face font-lock-keyword-face) 927 928 (fontified t) 928 932 (fontified t face font-lock-keyword-face) 932 943 (fontified t) 943 944 (fontified t face (rainbow-delimiters-depth-1-face)) 944 945 (fontified t face (rainbow-delimiters-depth-1-face)) 945 955 (fontified t) 955 957 (fontified t face font-lock-keyword-face) 957 961 (fontified t) 961 964 (fontified t face font-lock-builtin-face) 964 965 (fontified t face (rainbow-delimiters-depth-1-face)) 965 973 (fontified t) 973 975 (fontified t face font-lock-builtin-face) 975 976 (fontified t face (rainbow-delimiters-depth-1-face)) 976 989 (fontified t) 989 990 (fontified t face (rainbow-delimiters-depth-1-face)) 990 1000 (fontified t face font-lock-string-face) 1000 1001 (fontified t face (rainbow-delimiters-depth-1-face)) 1001 1003 (fontified t) 1003 1004 (fontified t face (rainbow-delimiters-depth-1-face)) 1004 1014 (fontified t face font-lock-string-face) 1014 1015 (fontified t face (rainbow-delimiters-depth-1-face)) 1015 1028 (fontified t) 1028 1029 (fontified t face font-lock-comment-delimiter-face) 1029 1043 (fontified t face font-lock-comment-face) 1043 1053 (fontified t) 1053 1057 (fontified t face font-lock-keyword-face) 1057 1062 (fontified t) 1062 1063 (fontified t face (rainbow-delimiters-depth-1-face)) 1063 1064 (fontified t face (rainbow-delimiters-depth-1-face)) 1064 1075 (fontified t) 1075 1080 (fontified t face font-lock-keyword-face) 1080 1087 (fontified t) 1087 1089 (fontified t face font-lock-string-face) 1089 1090 (fontified t syntax-table (15) face font-lock-string-face) 1090 1418 (fontified t face font-lock-string-face) 1418 1419 (fontified t syntax-table (15) face font-lock-string-face) 1419 1421 (fontified t face font-lock-string-face) 1421 1426 (fontified t) 1426 1430 (fontified t face font-lock-keyword-face) 1430 1435 (fontified t) 1435 1436 (fontified t face (rainbow-delimiters-depth-1-face)) 1436 1437 (fontified t face (rainbow-delimiters-depth-1-face)) 1437 1441 (fontified t) 1441 1444 (fontified t face font-lock-keyword-face) 1444 1445 (fontified t) 1445 1449 (fontified t face font-lock-function-name-face) 1449 1450 (fontified t face (rainbow-delimiters-depth-1-face)) 1450 1454 (fontified t face font-lock-keyword-face) 1454 1455 (fontified t face (rainbow-delimiters-depth-1-face)) 1455 1461 (fontified t) 1461 1463 (fontified t face font-lock-comment-delimiter-face) 1463 1493 (fontified t face font-lock-comment-face) 1493 1497 (fontified t) 1497 1500 (fontified t face font-lock-keyword-face) 1500 1501 (fontified t face font-lock-keyword-face) 1501 1509 (fontified t) 1509 1510 (fontified t face (rainbow-delimiters-depth-1-face)) 1510 1519 (fontified t) 1519 1534 (fontified t face font-lock-variable-name-face) 1534 1535 (fontified t face (rainbow-delimiters-depth-1-face)) 1535 1536 (fontified t) 1536 1540 (fontified t face font-lock-keyword-face) 1540 1546 (fontified t) 1546 1683 (fontified nil) 1683 1684 (fontified nil syntax-table (15)) 1684 1723 (fontified nil) 1723 1724 (fontified nil syntax-table (15)) 1724 2244 (fontified nil)) . 1) (undo-tree-id19 . -308) (undo-tree-id20 . -306) (undo-tree-id21 . -323) (undo-tree-id22 . -375) (undo-tree-id23 . -417) (undo-tree-id24 . -308) (undo-tree-id25 . -308) (t 25273 9467 976605 292000)) nil (25282 19395 733685 988000) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . 145) (undo-tree-id3 . -1) (undo-tree-id4 . -1) (undo-tree-id5 . -1) (undo-tree-id6 . -1) (undo-tree-id7 . -1) (undo-tree-id8 . -1) (undo-tree-id9 . -1) (undo-tree-id10 . -1) (undo-tree-id11 . -1) (undo-tree-id12 . -1) (undo-tree-id13 . -1) (undo-tree-id14 . -1) (undo-tree-id15 . -1) (undo-tree-id16 . -1) (undo-tree-id17 . -1) (undo-tree-id18 . -1)) nil (25282 19395 733241 312000) 0 nil])
+([nil nil ((145 . 146)) nil (25282 19395 733157 502000) 0 nil])
+([nil nil ((#("								" 0 8 (fontified t face font-lock-string-face)) . 1379) (undo-tree-id0 . -8) (undo-tree-id1 . -8) (undo-tree-id2 . -8)) nil (25282 19395 733140 434000) 0 nil])
+([nil current ((#("        newItem = True
+" 0 18 (fontified t) 18 22 (fontified t face font-lock-constant-face) 22 23 (fontified t)) . 656) (undo-tree-id26 . -18) (undo-tree-id27 . -23) (t 25282 19395 735222 681000)) nil (25282 19466 329510 293000) 0 nil])
+nil

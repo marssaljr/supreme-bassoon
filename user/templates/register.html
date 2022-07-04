@@ -1,0 +1,19 @@
+{% load static %}
+
+
+{% block 'body' %}
+{% block 'main' %}
+{% if request.session.error %}
+<h1>{{request.session.error}}</h1>
+{% endif %}
+<form action="{% url 'register' %}" method="POST">{% csrf_token %}
+	<input name="username" id="username" type="text" placeholder="username"/>
+	<br>
+	<input name="email" id="email" type="email" placeholder="vitorcampos@gmail.com"/>
+	<br>
+	<input name="password" type="password" placeholder="password"/>
+	<br>
+	<button type="submit">Log In</button>
+	</form>
+{% endblock %}
+{% endblock %}

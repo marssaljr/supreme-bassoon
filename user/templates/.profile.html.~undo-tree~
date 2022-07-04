@@ -1,0 +1,12 @@
+(undo-tree-save-format-version . 1)
+"8046f55b4f5e33c367e4785a6a05384ba11b3041"
+[nil nil nil nil (25282 18999 837488 760000) 0 nil]
+([nil nil ((nil rear-nonsticky nil 1186 . 1187) (nil fontified nil 1 . 1187) (1 . 1187) (#("{% extends 'base.html' %}
+{% block 'main' %}
+{{user}}
+{% endblock %}
+" 0 1 (fontified t face (rainbow-delimiters-depth-1-face)) 1 24 (fontified t) 24 25 (fontified t face (rainbow-delimiters-depth-1-face)) 25 26 (fontified t) 26 27 (fontified t face (rainbow-delimiters-depth-1-face)) 27 43 (fontified t) 43 44 (fontified t face (rainbow-delimiters-depth-1-face)) 44 45 (fontified t) 45 46 (fontified t face (rainbow-delimiters-depth-1-face)) 46 47 (fontified t face (rainbow-delimiters-depth-2-face)) 47 51 (fontified t) 51 52 (fontified t face (rainbow-delimiters-depth-2-face)) 52 53 (fontified t face (rainbow-delimiters-depth-1-face)) 53 54 (fontified t) 54 55 (fontified t face (rainbow-delimiters-depth-1-face)) 55 67 (fontified t) 67 68 (fontified t face (rainbow-delimiters-depth-1-face)) 68 69 (fontified t)) . 1) (undo-tree-id0 . -26) (undo-tree-id1 . 69) (undo-tree-id2 . -1) (undo-tree-id3 . 45) (undo-tree-id4 . -25) (undo-tree-id5 . -69) (undo-tree-id6 . -69) (undo-tree-id7 . -68) (t 25279 16318 293877 901000)) nil (25283 14031 230407 553000) 0 nil])
+([nil nil ((890 . 898) (t 25283 14031 230574 813000)) nil (25283 21824 921500 980000) 0 nil])
+([nil nil ((990 . 995) (#("e" 0 1 (fontified t face font-lock-string-face)) . -990) (undo-tree-id8 . -1) (#("u" 0 1 (fontified t face font-lock-string-face)) . -991) (undo-tree-id9 . -1) (#("s" 0 1 (fontified t face font-lock-string-face)) . -992) (undo-tree-id10 . -1) 993 (987 . 993) (803 . 811) (t 25283 21824 920675 978000)) nil (25283 21848 220008 556000) 0 nil])
+([nil current ((1087 . 1095)) nil (25283 21848 219524 896000) 0 nil])
+nil

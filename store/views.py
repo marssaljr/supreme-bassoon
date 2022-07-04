@@ -3,15 +3,16 @@ from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
 from .models import Product
 
-# Create your views here.
+
 def home(request):
-	medicine=request.GET.get('q')
-	if medicine:
-					medicine=medicine.capitalize()
-					medicines=Product.objects.filter(name__icontains=medicine)
-	else:
-					medicines=Product.objects.all()
-	return render(request, 'home.html', {'medicines': medicines})
+    medicine = request.GET.get("q")
+    if medicine:
+        medicine = medicine.capitalize()
+        medicines = Product.objects.filter(name__icontains=medicine)
+    else:
+        medicines = Product.objects.all()
+    return render(request, "home.html", {"medicines": medicines})
+
 
 @login_required(login_url="/users/login")
 def cart_add(request, id):
@@ -20,6 +21,7 @@ def cart_add(request, id):
     cart.add(product=product)
     return redirect("home")
 
+
 @login_required(login_url="/users/login")
 def item_inc(request, id):
     cart = Cart(request)
@@ -27,12 +29,15 @@ def item_inc(request, id):
     cart.add(product=product)
     return redirect("cart_detail")
 
+
 @login_required(login_url="/users/login")
 def item_dec(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
     cart.decrement(product=product)
     return redirect("cart_detail")
+
+
 @login_required(login_url="/users/login")
 def item_rem(request, id):
     cart = Cart(request)
@@ -40,9 +45,11 @@ def item_rem(request, id):
     cart.remove(product)
     return redirect("cart_detail")
 
+
 @login_required(login_url="/users/login")
 def cart_detail(request):
-    return render(request, 'cart_detail.html')
+    return render(request, "cart_detail.html")
+
 
 @login_required(login_url="/users/login")
 def cart_clear(request):

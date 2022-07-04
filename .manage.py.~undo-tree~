@@ -1,0 +1,21 @@
+(undo-tree-save-format-version . 1)
+"ea660fda837583b150a8f35172a05300a48b54a6"
+[nil nil nil nil (25282 19205 309650 100000) 0 nil]
+([nil current ((1 . 431) (#("#!/usr/bin/env python
+import os
+import sys
+
+def main():
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            \"Django is not installed or environment isn't enabled\"
+        ) from exc
+    execute_from_command_line(sys.argv)
+
+if __name__ == '__main__':
+    main()
+" 0 1 (fontified t face font-lock-comment-delimiter-face) 1 22 (fontified t face font-lock-comment-face) 22 28 (fontified t face font-lock-keyword-face) 28 32 (fontified t) 32 38 (fontified t face font-lock-keyword-face) 38 44 (fontified t) 44 47 (fontified t face font-lock-keyword-face) 47 48 (fontified t) 48 52 (fontified t face font-lock-function-name-face) 52 53 (fontified t face (rainbow-delimiters-depth-1-face)) 53 54 (fontified t face (rainbow-delimiters-depth-1-face)) 54 81 (fontified t) 81 82 (fontified t face (rainbow-delimiters-depth-1-face)) 82 106 (fontified t face font-lock-string-face) 106 108 (fontified t) 108 125 (fontified t face font-lock-string-face) 125 126 (fontified t face (rainbow-delimiters-depth-1-face)) 126 131 (fontified t) 131 134 (fontified t face font-lock-keyword-face) 134 144 (fontified t) 144 148 (fontified t face font-lock-keyword-face) 148 172 (fontified t) 172 178 (fontified t face font-lock-keyword-face) 178 209 (fontified t) 209 215 (fontified t face font-lock-keyword-face) 215 216 (fontified t) 216 227 (fontified t face font-lock-type-face) 227 228 (fontified t) 228 230 (fontified t face font-lock-keyword-face) 230 244 (fontified t) 244 249 (fontified t face font-lock-keyword-face) 249 250 (fontified t) 250 261 (fontified t face font-lock-type-face) 261 262 (fontified t face (rainbow-delimiters-depth-1-face)) 262 275 (fontified t) 275 329 (fontified t face font-lock-string-face) 329 338 (fontified t) 338 339 (fontified t face (rainbow-delimiters-depth-1-face)) 339 340 (fontified t) 340 344 (fontified t face font-lock-keyword-face) 344 378 (fontified t) 378 379 (fontified t face (rainbow-delimiters-depth-1-face)) 379 387 (fontified t) 387 388 (fontified t face (rainbow-delimiters-depth-1-face)) 388 390 (fontified t) 390 392 (fontified t face font-lock-keyword-face) 392 393 (fontified t) 393 401 (fontified t face font-lock-builtin-face) 401 405 (fontified t) 405 415 (fontified t face font-lock-string-face) 415 425 (fontified t) 425 426 (fontified t face (rainbow-delimiters-depth-1-face)) 426 427 (fontified t face (rainbow-delimiters-depth-1-face)) 427 428 (fontified t)) . -1) (undo-tree-id0 . -428) (undo-tree-id1 . -428) (undo-tree-id2 . -428) (undo-tree-id3 . -428) (undo-tree-id4 . -44) (undo-tree-id5 . -55) (undo-tree-id6 . -390) (undo-tree-id7 . -416) (undo-tree-id8 . -428) (undo-tree-id9 . -428) (undo-tree-id10 . -428) (undo-tree-id11 . -428) (undo-tree-id12 . -428) (undo-tree-id13 . -428) (undo-tree-id14 . -428) (undo-tree-id15 . -428) (undo-tree-id16 . -428) (undo-tree-id17 . -428) (undo-tree-id18 . -428) (undo-tree-id19 . -428) (undo-tree-id20 . -428) (undo-tree-id21 . -428) (t 25271 59263 202021 22000)) nil (25282 19205 309630 610000) 0 nil])
+nil
