@@ -13,6 +13,8 @@ def register(request):
             return redirect("/")
         return render(request, "register.html")
     elif request.method == "POST":
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
         username = request.POST.get("username")
         email = request.POST.get("email")
         password = request.POST.get("password")
@@ -20,6 +22,8 @@ def register(request):
             len(username.strip()) == 0
             or len(email.strip()) == 0
             or len(password.strip()) == 0
+            or len(first_name.strip()) == 0
+            or len(last_name.strip()) == 0
         ):
             request.session["error"] = "Email, Senha ou Usuario nao foi digitado!"
             return redirect("register")
@@ -29,32 +33,36 @@ def register(request):
             return redirect("register")
         try:
             user = User.objects.create_user(
-                username=username, email=email, password=password
+                first_name=first_name,
+                last_name=last_name,
+                username=username,
+                email=email,
+                password=password
             )
             user.save()
-            user = auth.authenticate(username=username, password=password)
+            request.session["error"]="Usuario criado!"
+            #user = auth.authenticate(username=username, password=password)
             if not user:
                 return redirect("register")
             else:
-                auth.login(request, user)
-                profile = Profile.objects.create(user=user)
-                profile.save()
-                request.session["error"] = "Usuario registrado!"
-                return redirect("home")
+                return login(request)
+                #auth.login(request, user)
+                #profile = Profile.objects.create(user=user)
+                #profile.save()
+                #return redirect("home")
         except:
             return redirect("/user/register")
 
 
 def login(request):
     if request.method == "GET":
-        nextRoute=request.GET.get('next')
-        if nextRoute:
-            request.session['next']=nextRoute
+        #nextRoute=request.GET.get('next')
         if request.user.is_authenticated:
-            return redirect(nextRoute,"home")
+            #return redirect(nextRoute,"home")
+            return redirect("home")
         return render(request, "login.html")
     elif request.method == "POST":
-        nextRoute=request.session['next']
+        #nextRoute=request.GET.get('next')
         username = request.POST.get("username")
         password = request.POST.get("password")
         user = auth.authenticate(username=username, password=password)
@@ -62,7 +70,9 @@ def login(request):
             return redirect("login")
         else:
             auth.login(request, user)
-            return redirect(nextRoute, 'home')
+            profile=Profile.objects.get_or_create(user=user)
+            #return redirect(nextRoute, 'home')
+            return redirect("home")
 
 def logout(request):
     auth.logout(request)

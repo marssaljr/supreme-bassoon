@@ -1,4 +1,4 @@
-from django.test import TestCase, Client, RequestFactory
+from django.test import AsyncClient, TestCase, Client, RequestFactory
 from django.urls import reverse
 from django.contrib import auth
 from django.contrib.auth.models import User
@@ -10,6 +10,7 @@ class UserViewTestCase(TestCase):
 
     def setUp(self):
         self.client = Client(SERVER_NAME='localhost')
+        self.async_client = AsyncClient(SERVER_NAME='localhost')
         self.factory = RequestFactory()
         self.jacob = {
             'username': 'jacob',
@@ -42,7 +43,7 @@ class UserViewTestCase(TestCase):
             'password': 'test'
         })
         user = User.objects.filter(username='vicky')
-        self.assertEqual(user.exists(), True)
+        self.assertEquals(user.exists(), True)
 
     def test_register_page_user_already_exists(self):
         url = reverse('register')

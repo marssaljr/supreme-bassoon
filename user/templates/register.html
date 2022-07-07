@@ -11,6 +11,10 @@
 <h1>{{request.session.error}}</h1>
 {% endif %}
 <form action="{% url 'register' %}" method="POST">{% csrf_token %}
+  <input name="first_name" id="first_name" type="text" placeholder="Primeiro nome"/>
+  <br>
+  <input name="last_name" id="last_name" type="text" placeholder="Sobrenome"/>
+  <br>
 	<input name="username" id="username" type="text" placeholder="username"/>
 	<br>
 	<input name="email" id="email" type="email" placeholder="vitorcampos@gmail.com"/>

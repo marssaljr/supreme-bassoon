@@ -24,16 +24,13 @@
 	  <img src="{{user.profile.avatar.url}}" alt="{{user.username}}"/>
       {{ profile_form.avatar }}
 	</div>
-	<label>Nome completo</label>
 	<br>
-	{{ request.user.get_full_name }}
+	<h1>{{ request.user.get_full_name }}</h1>
 	<br>
 	<label>Usuario</label>
-	<br>
 	{{ user_form.username }}
   <br>
   <label>Bio</label>
-  <br>
   {{ profile_form.bio }}
   <br>
   <label>Endereco</label>
@@ -43,11 +40,14 @@
   {{ user_form.email }}
   <br>
   <label>Nascimento</label>
-  <br>
   {{ profile_form.birth_date }}
   <br>
   <button type="submit"><i class="ph-pencil"></i> Salvar</button>
   <button type="reset"><i class="ph-trash"></i> Limpar</button>
+  <button type="submit"><i class="ph-user-circle-minus"></i>
+	Deletar a conta</button>
+  <br>
+  <br>
 </form>
 </div>
 {% endblock %}
