@@ -9,7 +9,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, default="Cliente gente boa :)", blank=True)
     location = models.CharField(max_length=30, default="Lugar nenhum", blank=True)
     birth_date = models.DateField(null=True, blank=True, default=datetime.date.today)
-    avatar = models.ImageField(default='default.png', upload_to='profile_images')
+    avatar = models.ImageField(default='default.jpg', upload_to='profile_images')
 
     def __str__(self):
         return str(self.user)
