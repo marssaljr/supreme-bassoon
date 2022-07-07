@@ -14,7 +14,7 @@ def home(request):
     return render(request, "home.html", {"medicines": medicines})
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/user/login")
 def cart_add(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
@@ -22,7 +22,7 @@ def cart_add(request, id):
     return redirect("home")
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/user/login")
 def item_inc(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
@@ -30,7 +30,7 @@ def item_inc(request, id):
     return redirect("cart_detail")
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/user/login")
 def item_dec(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
@@ -38,7 +38,7 @@ def item_dec(request, id):
     return redirect("cart_detail")
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/user/login")
 def item_rem(request, id):
     cart = Cart(request)
     product = Product.objects.get(id=id)
@@ -46,12 +46,12 @@ def item_rem(request, id):
     return redirect("cart_detail")
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/user/login")
 def cart_detail(request):
     return render(request, "cart_detail.html")
 
 
-@login_required(login_url="/users/login")
+@login_required(login_url="/user/login")
 def cart_clear(request):
     cart = Cart(request)
     cart.clear()

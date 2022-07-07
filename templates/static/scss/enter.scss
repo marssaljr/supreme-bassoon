@@ -1,0 +1,50 @@
+$primary-light: #FF5733;
+$primary: #FFa741;
+
+.main {
+		margin:0 auto;
+		background: none;
+		font-size: 0.8rem;
+		padding: 8px;
+		margin-top: 20vh;
+		
+		form {
+				display: flex;
+				flex-direction: column;
+				max-width: 95%;
+				flex-wrap:nowrap;
+				align-content:center;
+				align-items: center;
+				width:100%;
+				margin:0 auto;
+				input {
+						width:100%;
+						border:none;
+						padding: 8px;
+						border-radius:8px;
+						outline:none;
+						&:focus {
+								border: 2px solid #bebebe;
+						}
+				}
+				button {
+						width:100%;
+						border-radius:4px;
+						padding:8px;
+						border: none;
+						font-weight:bold;
+						cursor: pointer;
+						&:hover {
+								background-color: $primary;
+						}
+				}
+				a {
+						text-decoration: underline;
+						text-underline-position: under;
+						cursor: pointer;
+				}
+		}
+}
+footer {
+		position: absolute !important;
+}

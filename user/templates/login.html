@@ -1,8 +1,12 @@
+{% extends 'base.html' %}
 {% load static %}
 
+{% block 'head'%}
+<link rel="stylesheet" href="{% static 'css/enter.css' %}">
+{% endblock %}
 
-{% block 'body' %}
 {% block 'main' %}
+<div class="main">
 {% if request.session.error %}
 <h1>{{request.session.error}}</h1>
 {% endif %}
@@ -11,7 +15,8 @@
 	<br>
 	<input name="password" type="password" placeholder="password"/>
 	<br>
-	<button type="submit">Log In</button>
-	</form>
-{% endblock %}
+	<button type="submit">Entrar</button>
+	ainda nao tem uma conta? Crie <a onclick="location.href='{% url 'register' %}'">aqui.</a>
+</form>
+</div>
 {% endblock %}

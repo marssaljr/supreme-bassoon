@@ -46,6 +46,9 @@ body {
 
 .container-fluid .navbar-brand {
   font-size: 1.6rem;
+  text-underline-position: under;
+  text-decoration-color: slategray;
+  color: #FFa741;
 }
 
 .container-fluid .user-items {
@@ -54,18 +57,28 @@ body {
   gap: 1em;
 }
 
-.container-fluid .user-items .cart {
+.container-fluid .user-items .cart, .container-fluid .user-items .user {
   border: none;
   background: none;
   cursor: pointer;
 }
 
+.container-fluid .user-items .user {
+  font-size: 1.3em;
+}
+
+.container-fluid .user-items .cart {
+  font-size: 0.7em;
+}
+
 footer {
-  height: 20%;
+  width: 100%;
+  height: 10%;
   padding: 20px;
   display: flex;
   justify-content: center;
   background: #FFa741;
+  bottom: 0;
 }
 
 footer a {

@@ -68,8 +68,10 @@ class Cart(object):
         for k, v in self.cart.items():
             if k == str(product.id):
                 v["quantity"] = v["quantity"] - 1
-                if v["quantity"] < 1:
+                if v["quantity"] >= 1:
                     return redirect("cart_detail")
+                else:
+                    self.remove(product)
                 self.save()
                 break
             else:

@@ -17,20 +17,13 @@
 	<body>
 		<nav class="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand">Elo<strong>Farma</strong></a>
+          <a class="navbar-brand" href="{% url 'home' %}">Elo<strong>Farma</strong></a>
           {% if user.is_authenticated %}
+          <div class="user-items">
           {% if request.session.cart|length != 0 %}
-          <div class="user-items">          
             <button class="cart" onclick="location.href='{% url 'cart_detail' %}'"><i class="ph-shopping-cart"></i>{{request.session.cart|length}}</button>
           {% endif %}
-          <!-- <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" id="q" name="q" placeholder="Paracetamol..." aria-label="Search">
-            <button class="btn btn-outline-warning" type="submit">Buscar</button>
-          </form>       -->   
-            <div>
-							<i class="ph-user-circle"></i>
-						</div>
-
+			<button class="user" onclick="location.href='{% url 'profile' %}'"><i class="ph-user-circle"></i></button>
           </div>
           {% endif %}
         </div>

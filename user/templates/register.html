@@ -1,8 +1,12 @@
+{% extends 'base.html' %}
 {% load static %}
 
+{% block 'head'%}
+<link rel="stylesheet" href="{% static 'css/enter.css' %}">
+{% endblock %}
 
-{% block 'body' %}
 {% block 'main' %}
+<div class="main">
 {% if request.session.error %}
 <h1>{{request.session.error}}</h1>
 {% endif %}
@@ -13,7 +17,8 @@
 	<br>
 	<input name="password" type="password" placeholder="password"/>
 	<br>
-	<button type="submit">Log In</button>
-	</form>
-{% endblock %}
+	<button type="submit">Criar Conta</button>
+ja tem uma conta? Entre <a onclick="location.href='{% url 'login' %}'">aqui.</a>
+</form>
+</div>
 {% endblock %}

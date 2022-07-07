@@ -1,0 +1,53 @@
+.user-profile-info {
+  margin: 1em;
+  margin-top: 3em;
+}
+
+.user-profile-info form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: center;
+  align-content: center;
+  max-width: 400px;
+  min-height: 700px;
+}
+
+.user-profile-info form .user-profile-photo img {
+  width: 90px;
+  border-radius: 50%;
+  border: 2px solid #bebebe;
+  padding: 4px;
+  transition: 1s ease all;
+}
+
+.user-profile-info form .user-profile-photo img:hover {
+  transform: scale3d(1.2, 1.2, 1) rotate3d(1, 1, 1, 45deg);
+}
+
+.user-profile-info form input, .user-profile-info form textarea {
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  outline: tomato;
+  margin: 0.1rem;
+}
+
+.user-profile-info form input:focus, .user-profile-info form textarea:focus {
+  border: 2px solid tomato;
+}
+
+.user-profile-info form button {
+  background: teal;
+  color: white;
+  border: none;
+  padding: 4px;
+  margin: 0.2em;
+  border-radius: 4px;
+  transition: 300ms ease all;
+}
+
+.user-profile-info form button:hover {
+  background: tomato;
+}
