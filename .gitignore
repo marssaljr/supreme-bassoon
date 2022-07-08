@@ -2,7 +2,8 @@
 ### Emacs  ###
 *~
 *.~undo-tree
-
+*~undo-tree~
+.*.~undo-tree~
 ### Django ###
 *.log
 *.pot
