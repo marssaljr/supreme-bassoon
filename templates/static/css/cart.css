@@ -1,5 +1,7 @@
 main {
   height: 800px;
+  margin: 0 auto;
+  max-width: 500px;
 }
 
 main .cart-title {
@@ -22,16 +24,32 @@ main .cart-title h1 {
   flex-wrap: wrap;
   gap: 1em;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  border-radius: 8px;
   margin: 0.5em;
-  padding: 4px;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 8px;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 306px) {
+  .products .product {
+    flex-direction: column;
+  }
 }
 
 .products .product img {
   width: 4em;
   height: 4em;
+}
+
+.products .product .product-quantity {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
 }
 
 .products .product .product-description h3 {
@@ -43,10 +61,12 @@ main .cart-title h1 {
 }
 
 .products .product .product-description div button {
+  cursor: pointer;
   width: 40%;
   background: none;
   border-radius: 4px;
-  border: 1px solid #fff;
+  /*border: 1px solid #fff;*/
+  border: none;
   padding: 0.4em;
   font-size: large;
   font-weight: bold;
@@ -56,15 +76,16 @@ main .cart-title h1 {
 @media (prefers-color-scheme: light) {
   .products .product .product-description div button {
     color: #555;
-    border: 1px solid #555;
   }
 }
 
 .products .product .product-description div button:hover {
   border: none;
+  color: white;
   background: cornflowerblue;
 }
 
 .products .product .product-description div .minus:hover {
   background: crimson;
+  color: white;
 }
