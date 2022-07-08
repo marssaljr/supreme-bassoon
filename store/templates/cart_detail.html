@@ -24,16 +24,13 @@ Carrinho
 						 height="80">
 				<div class="product-description">
 					<div>
+					  <div>
 						<h3>{{value.name}}</h3>
-						<p>R$ {{value.price}} <br></p>
-						<p>
-							<i class="ph-shopping-cart-simple"></i>
-							{{value.quantity}}  <br>
-						</p>
-						<p>Total: {{ value.price|multiply:value.quantity }}</p>
+						<p>R$ {{value.price}}</p>
+					  </div>
 					</div>
-					<div>
-						<button onclick="location.href='{% url 'cart_inc' value.product_id %}'" >+</button>
+					<div class="product-quantity">
+						<button onclick="location.href='{% url 'cart_inc' value.product_id %}'" >+</button> {{value.quantity}}
 						<button onclick="location.href='{% url 'cart_dec' value.product_id %}'" class="minus">-</button>
 					</div>
 				</div>
