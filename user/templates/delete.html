@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head'%}
+<link rel="stylesheet" href="{% static 'css/delete.css' %}">
+{% endblock %}
+
+{% block 'main' %}
+<div class="main">
+	{% if not success %}
+  <form method="POST">
+		{% csrf_token %}
+		<label>Tem certeza que deseja deletar a sua conta?</label>
+		<a onclick="location.href='{% url 'profile' %}'">Não</a> / <button type="submit">Sim</button>
+  </form>
+{% else %}
+	<div>
+		<h1>Seus dados foram apagados com sucesso!</h1>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

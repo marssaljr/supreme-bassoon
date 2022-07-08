@@ -7,9 +7,6 @@
 
 {% block 'main' %}
 <div class="main">
-{% if request.session.error %}
-<h1>{{request.session.error}}</h1>
-{% endif %}
 <form action="{% url 'register' %}" method="POST">{% csrf_token %}
   <input name="first_name" id="first_name" type="text" placeholder="Primeiro nome"/>
   <br>

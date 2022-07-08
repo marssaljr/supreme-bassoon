@@ -1,0 +1,20 @@
+footer {
+		display: none;
+}
+
+.main {
+		margin: 2rem;
+		form {
+				a {
+						text-decoration: underline;
+						color: red;
+						cursor: pointer;
+				}
+				button {
+						border: none;
+						background: none;
+						text-decoration: underline;
+						cursor: help;
+				}
+		}
+}

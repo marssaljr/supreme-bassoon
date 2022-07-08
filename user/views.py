@@ -5,79 +5,56 @@ from user.models import Profile
 from django.contrib import auth
 from .forms import RegisterForm, LoginForm, UpdateUserForm, UpdateProfileForm
 
-# Create your views here.
-def register(request):
-    request.session["error"] = ""
-    if request.method == "GET":
-        if request.user.is_authenticated:
-            return redirect("/")
-        return render(request, "register.html")
-    elif request.method == "POST":
-        first_name = request.POST.get("first_name")
-        last_name = request.POST.get("last_name")
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-        if (
-            len(username.strip()) == 0
-            or len(email.strip()) == 0
-            or len(password.strip()) == 0
-            or len(first_name.strip()) == 0
-            or len(last_name.strip()) == 0
-        ):
-            request.session["error"] = "Email, Senha ou Usuario nao foi digitado!"
-            return redirect("register")
-        user = User.objects.filter(username=username)
-        if user.exists():
-            request.session["error"] = "Usuario ja existe!"
-            return redirect("register")
-        try:
-            user = User.objects.create_user(
-                first_name=first_name,
-                last_name=last_name,
-                username=username,
-                email=email,
-                password=password
-            )
-            user.save()
-            request.session["error"]="Usuario criado!"
-            #user = auth.authenticate(username=username, password=password)
-            if not user:
-                return redirect("register")
-            else:
-                return login(request)
-                #auth.login(request, user)
-                #profile = Profile.objects.create(user=user)
-                #profile.save()
-                #return redirect("home")
-        except:
-            return redirect("/user/register")
 
+def register(request):
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return login(request)
+        else:
+            return redirect("/user/register")
+    else:
+        form=RegisterForm()
+        if request.user.is_authenticated:
+            return redirect("home")
+    return render(request, 'register.html', {'form':form})
 
 def login(request):
-    if request.method == "GET":
-        #nextRoute=request.GET.get('next')
-        if request.user.is_authenticated:
-            #return redirect(nextRoute,"home")
-            return redirect("home")
-        return render(request, "login.html")
-    elif request.method == "POST":
-        #nextRoute=request.GET.get('next')
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        user = auth.authenticate(username=username, password=password)
-        if not user:
-            return redirect("login")
-        else:
-            auth.login(request, user)
-            profile=Profile.objects.get_or_create(user=user)
-            #return redirect(nextRoute, 'home')
-            return redirect("home")
+    if request.method == "POST":
+        form=LoginForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = auth.authenticate(username=username, password=password)
+            if not user:
+                return redirect("login")
+            else:
+                auth.login(request, user)
+                Profile.objects.get_or_create(user=user)
+                return redirect("home")
+    else:
+        form=LoginForm()
+    return render(request, 'login.html', {'form': form})
 
 def logout(request):
     auth.logout(request)
     return redirect("/user/login")
 
+def delete(request):
+    if request.method =="GET":
+        user=request.user
+        if user.is_anonymous:
+            return redirect("login")
+        return render(request,"delete.html")
+    user = request.user
+    if user.is_anonymous:
+        return redirect("login")
+    profile = Profile.objects.filter(user=user)
+    user = User.objects.get(pk=user.pk)
+    profile.delete()
+    user.delete()
+    return render(request, "delete.html", {'success':'ok'})
 
 @login_required(login_url="/user/login")
 def profile(request):
