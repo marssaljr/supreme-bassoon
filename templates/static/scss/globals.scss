@@ -30,9 +30,10 @@ body {
 	font-size: 1.6rem;
 	box-shadow: 2px 2px 8px;
 	@media (prefers-color-scheme: dark) {
-			a {
-				color: whitesmoke;
-			}
+		box-shadow: 1px 1px 10px rgba(255,255,255,.4);
+		a {
+			color: whitesmoke;
+		}
 	}
 }
 .container-fluid {
