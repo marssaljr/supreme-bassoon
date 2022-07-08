@@ -4,6 +4,7 @@
   font-size: 0.8rem;
   padding: 8px;
   margin-top: 20vh;
+  max-width: 500px;
 }
 
 .main form {
@@ -36,6 +37,7 @@
   border: none;
   font-weight: bold;
   cursor: pointer;
+  transition: all ease 300ms;
 }
 
 .main form button:hover {
