@@ -113,6 +113,10 @@ class UpdateProfileForm(forms.ModelForm):
     bio = forms.CharField(
         widget=forms.Textarea(attrs={"class": "form-control", "rows": 5})
     )
+    location = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={"class": "form-control"})
+    )
     birth_date = forms.DateField(
         widget=forms.DateInput(attrs={"class": "form-control", "type": "date"})
     )
