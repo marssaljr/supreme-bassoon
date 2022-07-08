@@ -21,15 +21,19 @@
           {% if user.is_authenticated %}
           <div class="user-items">
           {% if request.session.cart|length != 0 %}
-            <button class="cart" onclick="location.href='{% url 'cart_detail' %}'"><i class="ph-shopping-cart"></i>{{request.session.cart|length}}</button>
+            <button class="cart" onclick="location.href='{% url 'cart_detail' %}'"><i class="ph-shopping-bag"></i></button>{{request.session.cart|length}}
           {% endif %}
-			<button class="user" onclick="location.href='{% url 'profile' %}'"><i class="ph-user-circle"></i></button>
+						<button class="user" onclick="location.href='{% url 'profile' %}'"><img width="30" src="{{user.profile.avatar.url}}"/></button>
           </div>
           {% endif %}
         </div>
       </nav>
 		{% block 'main' %}
+
+
 		{% endblock %}
-    <footer><a href="https://github.com/marssaljr">Made with ❤️ by @Marssaljr</a></footer>
+		<footer>
+
+		  <a href="https://github.com/marssaljr">Made with ❤️ by @Marssaljr</a></footer>
 </body>
 </html>
