@@ -28,6 +28,7 @@ body {
 	height: 4rem;
 	padding: 0.6em;
 	font-size: 1.6rem;
+	box-shadow: 2px 2px 8px;
 	@media (prefers-color-scheme: dark) {
 			a {
 				color: whitesmoke;
@@ -47,17 +48,27 @@ body {
 		.user-items {
 				display: flex;
 				flex-wrap:nowrap;
-				gap:1em;
+				gap:0.85em;
+				color: slategray;
+				font-size: 0.9rem;
+
 				.cart, .user {
 						border:none;
 						background:none;
 						cursor:pointer;
+						[class^="ph-"], [class*=" ph-"] {
+							display: inline-flex;
+							color: slategray;
+						}
 				}
 				.user {
-						font-size: 1.3em;
+					font-size: 1.3em;
+					img {
+						border-radius: 50%;
+					}
 				}
 				.cart {
-					font-size: 0.7em;
+					font-size: 1.9em;
 				}
 		}
 }
