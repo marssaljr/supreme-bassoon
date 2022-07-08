@@ -30,6 +30,7 @@ body {
   height: 4rem;
   padding: 0.6em;
   font-size: 1.6rem;
+  box-shadow: 2px 2px 8px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,7 +55,9 @@ body {
 .container-fluid .user-items {
   display: flex;
   flex-wrap: nowrap;
-  gap: 1em;
+  gap: 0.85em;
+  color: slategray;
+  font-size: 0.9rem;
 }
 
 .container-fluid .user-items .cart, .container-fluid .user-items .user {
@@ -63,12 +66,21 @@ body {
   cursor: pointer;
 }
 
+.container-fluid .user-items .cart [class^="ph-"], .container-fluid .user-items .cart [class*=" ph-"], .container-fluid .user-items .user [class^="ph-"], .container-fluid .user-items .user [class*=" ph-"] {
+  display: inline-flex;
+  color: slategray;
+}
+
 .container-fluid .user-items .user {
   font-size: 1.3em;
 }
 
+.container-fluid .user-items .user img {
+  border-radius: 50%;
+}
+
 .container-fluid .user-items .cart {
-  font-size: 0.7em;
+  font-size: 1.9em;
 }
 
 footer {
