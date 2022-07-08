@@ -48,7 +48,12 @@ def item_rem(request, id):
 
 @login_required(login_url="/user/login")
 def cart_detail(request):
-    return render(request, "cart_detail.html")
+    cart = Cart(request)
+    total = cart.get_total_price()
+    print(cart)
+    for items in cart:
+        print(items)
+    return render(request, "cart_detail.html", {'cart': cart, 'total':total})
 
 
 @login_required(login_url="/user/login")

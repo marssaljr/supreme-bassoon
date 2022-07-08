@@ -6,6 +6,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-9hdn*4mpx)wgq2si-3^^4#qzu!cbtc%szf$x609^v4c^!c1luf"
 DEBUG = True
 
+STRIPE_PUBLISHABLE_KEY = '<your test publishable key here>'
+STRIPE_SECRET_KEY = '<your test secret key here>'
+
 ALLOWED_HOSTS = ["192.168.1.2", "localhost", "127.0.0.1"]
 
 INSTALLED_APPS = [
