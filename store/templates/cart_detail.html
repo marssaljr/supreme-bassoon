@@ -4,6 +4,8 @@
 
 {% block 'head' %}
 <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://js.stripe.com/v3/"></script>
 <title>
 Carrinho
 </title>
@@ -11,11 +13,17 @@ Carrinho
 {% block 'main' %}
 <main>
 	<div class="cart-title">
-		<h1>Carrinho</h1>
+	  <h1>Carrinho</h1>
+	  {% if request.session.cart|length > 0 %}
 		<p>Quantidade de items: {{request.session.cart|length}}</p>
 		<p>Total: R$ {{total}}</p>
+		<button class="button is-primary" id="comprar">Pagar</button>
+		<button class="button is-primary" onclick="location.href='{% url 'cart_clear' %}'">Limpar</button>
+		{% else %}
+		<p>Está vazio, volte ao menu principal para adicionar algum item!</p>
+		<button class="button is-primary" onclick="location.href='{% url 'home' %}'">Voltar</button>
+	  {% endif %}
 	</div>
-
 	<div class="products">
 		{% for key,value in request.session.cart.items %}
 			<div class="product">
