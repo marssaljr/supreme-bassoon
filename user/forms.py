@@ -36,7 +36,7 @@ class RegisterForm(UserCreationForm):
             }
         ),
     )
-    email = forms.CharField(
+    email = forms.EmailField(
         max_length=100,
         required=True,
         widget=forms.TextInput(
@@ -46,22 +46,36 @@ class RegisterForm(UserCreationForm):
             }
         ),
     )
-    password = forms.CharField(
+    password1 = forms.CharField(
         max_length=100,
         required=True,
-        widget=forms.TextInput(
+        widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Senha",
                 "class": "form-control",
                 "data-toggle": "password",
                 "id": "password",
+                "name": "password1",
             }
         ),
+    )
+    password2 = forms.CharField(
+        max_length=100,
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={
+                "placeholder": "Confirmação de Senha",
+                "class": "form-control",
+                "data-toggle": "password",
+                "id": "password",
+                "name": "password2",
+            }
+        )
     )
 
     class Meta:
         model = User
-        fields = ["first_name", "last_name", "username", "email", "password"]
+        fields = ["first_name", "last_name", "username", "email", "password1", "password2"]
 
 
 class LoginForm(AuthenticationForm):
