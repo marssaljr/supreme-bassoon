@@ -14,6 +14,15 @@
   min-height: 700px;
 }
 
+.user-profile-info form .user-profile-photo {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile-info form .user-profile-photo input {
+  max-width: 50%;
+}
+
 .user-profile-info form .user-profile-photo img {
   width: 90px;
   border-radius: 50%;
@@ -32,6 +41,7 @@
   border-radius: 8px;
   outline: tomato;
   margin: 0.1rem;
+  max-width: 95%;
 }
 
 .user-profile-info form input:focus, .user-profile-info form textarea:focus {

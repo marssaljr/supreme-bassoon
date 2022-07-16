@@ -11,6 +11,12 @@
 		max-width: 400px;
 		min-height: 700px;
 		.user-profile-photo {
+			display: flex;
+			flex-direction: column;
+			input {
+				max-width: 50%;
+			}
+
 			img {
 				width: 90px;
 				border-radius: 50%;
@@ -28,6 +34,7 @@
 			border-radius: 8px;
 			outline: tomato;
 			margin: 0.1rem;
+			max-width: 95%;
 			&:focus {
 				border: 2px solid tomato;
 			}
