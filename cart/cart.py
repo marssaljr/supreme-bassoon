@@ -36,17 +36,6 @@ class Cart(object):
                     # newItem=False
                     self.save()
                     break
-            """if newItem==True:
-								self.add(product, quantity=1, action=None)
-								self.cart[product.id]={
-										'userid':	self.request,
-										'product_id': product.id,
-										'name': product.name,
-										'quantity': 1,
-										'price': str(product.price),
-										'image': product.image.url
-								}
-						"""
         self.save()
 
     def save(self):
