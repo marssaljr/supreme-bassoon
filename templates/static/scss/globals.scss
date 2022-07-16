@@ -49,23 +49,43 @@ body {
 		.user-items {
 				display: flex;
 				flex-wrap:nowrap;
-				gap:0.85em;
+				gap:1.2em;
 				color: slategray;
 				font-size: 0.9rem;
-
-				.cart, .user {
+				.cart-items {
+					.cart {
 						border:none;
 						background:none;
 						cursor:pointer;
 						[class^="ph-"], [class*=" ph-"] {
 							display: inline-flex;
-							color: slategray;
+							color: orange;
 						}
+					}
+					.cart-has-items {
+						color: transparent;
+						background: orange;
+						padding: 1px;
+						height: 5px;
+						position: fixed;
+						width: 5px;
+						border-radius: 100%;
+						border: none;
+					}
 				}
 				.user {
+					border:none;
+					background:none;
+					cursor:pointer;
+					[class^="ph-"], [class*=" ph-"] {
+						display: inline-flex;
+						color: slategray;
+					}
 					font-size: 1.3em;
 					img {
 						border-radius: 50%;
+						border: 2px solid orange;
+						padding: 2px;
 					}
 				}
 				.cart {

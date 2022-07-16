@@ -7,19 +7,49 @@
 
 {% block 'main' %}
 <div class="main">
-<form action="{% url 'register' %}" method="POST">{% csrf_token %}
-  <input name="first_name" id="first_name" type="text" placeholder="Primeiro nome"/>
-  <br>
-  <input name="last_name" id="last_name" type="text" placeholder="Sobrenome"/>
-  <br>
-	<input name="username" id="username" type="text" placeholder="username"/>
-	<br>
-	<input name="email" id="email" type="email" placeholder="vitorcampos@gmail.com"/>
-	<br>
-	<input name="password" type="password" placeholder="password"/>
+  <form action="{% url 'register' %}" method="POST">{% csrf_token %}
+	{% if form.errors %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <div id="form_errors">
+        {% for key, value in form.errors.items %}
+        <strong>{{ value }}</strong>
+        {% endfor %}
+      </div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+	{% endif %}
+	<div>
+	<label>Primeiro nome</label>
+	{{ form.first_name }}
+	</div>
+	<div>
+	<label>Segundo nome</label>
+	{{ form.last_name }}
+	</div>
+	<div>
+	<label>Usuario</label>
+	{{ form.username }}
+	</div>
+	<div>
+	<label>Email</label>
+	{{ form.email }}
+	</div>
+	<div>
+	<label>Senha</label>
+	{{ form.password1 }}
+	</div>
+	<div>
+	<label>Confirme a senha</label>
+    {{ form.errors.password }}
+	{{ form.password2 }}
+	</div>
 	<br>
 	<button type="submit">Criar Conta</button>
-ja tem uma conta? Entre <a onclick="location.href='{% url 'login' %}'">aqui.</a>
+	<div>
+	  ja tem uma conta? Entre <a onclick="location.href='{% url 'login' %}'">aqui.</a>
+	  </div>
 </form>
 </div>
 {% endblock %}

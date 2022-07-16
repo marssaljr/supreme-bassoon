@@ -12,7 +12,6 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/2ce8403e7e.js" crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/phosphor-icons"></script>
-		<script src="{% static 'main.js' %}"></script>
 		{% block 'head' %}{% endblock %}
 	</head>
 	<body>
@@ -21,8 +20,10 @@
           <a class="navbar-brand" href="{% url 'home' %}">Elo<strong>Farma</strong></a>
           {% if user.is_authenticated %}
           <div class="user-items">
-          {% if request.session.cart|length != 0 %}
-            <button class="cart" onclick="location.href='{% url 'cart_detail' %}'"><i class="ph-shopping-bag"></i></button>{{request.session.cart|length}}
+			{% if request.session.cart|length != 0 %}
+			<div class="cart-items">
+              <button class="cart" onclick="location.href='{% url 'cart_detail' %}'"><i class="ph-shopping-bag"></i></button><span class="cart-has-items"></span>
+			</div>
           {% endif %}
 						<button class="user" onclick="location.href='{% url 'profile' %}'"><img width="30" src="{{user.profile.avatar.url}}"/></button>
           </div>

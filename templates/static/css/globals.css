@@ -58,28 +58,49 @@ body {
 .container-fluid .user-items {
   display: flex;
   flex-wrap: nowrap;
-  gap: 0.85em;
+  gap: 1.2em;
   color: slategray;
   font-size: 0.9rem;
 }
 
-.container-fluid .user-items .cart, .container-fluid .user-items .user {
+.container-fluid .user-items .cart-items .cart {
   border: none;
   background: none;
   cursor: pointer;
 }
 
-.container-fluid .user-items .cart [class^="ph-"], .container-fluid .user-items .cart [class*=" ph-"], .container-fluid .user-items .user [class^="ph-"], .container-fluid .user-items .user [class*=" ph-"] {
+.container-fluid .user-items .cart-items .cart [class^="ph-"], .container-fluid .user-items .cart-items .cart [class*=" ph-"] {
+  display: inline-flex;
+  color: orange;
+}
+
+.container-fluid .user-items .cart-items .cart-has-items {
+  color: transparent;
+  background: orange;
+  padding: 1px;
+  height: 5px;
+  position: fixed;
+  width: 5px;
+  border-radius: 100%;
+  border: none;
+}
+
+.container-fluid .user-items .user {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.3em;
+}
+
+.container-fluid .user-items .user [class^="ph-"], .container-fluid .user-items .user [class*=" ph-"] {
   display: inline-flex;
   color: slategray;
 }
 
-.container-fluid .user-items .user {
-  font-size: 1.3em;
-}
-
 .container-fluid .user-items .user img {
   border-radius: 50%;
+  border: 2px solid orange;
+  padding: 2px;
 }
 
 .container-fluid .user-items .cart {

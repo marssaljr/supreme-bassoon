@@ -7,13 +7,32 @@
 
 {% block 'main' %}
 <div class="main">
-<form action="{% url 'login' %}" method="POST">{% csrf_token %}
-	<input name="username" id="username" type="text" placeholder="username"/>
-	<br>
-	<input name="password" type="password" placeholder="password"/>
-	<br>
+  <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+	{% if form.errors %}
+	<div class="alert alert-danger alert-dismissible" role="alert">
+      <div id="form_errors">
+		{% for key, value in form.errors.items %}
+		<strong>{{ value }}</strong>
+		{% endfor %}
+      </div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+      </button>
+	</div>
+	{% endif %}
+
+	<div>
+	  <label>Usuario</label>
+	  {{ form.username }}
+	</div>
+	<div>
+	  <label>Senha</label>
+	  {{ form.password }}
+	</div>
 	<button type="submit">Entrar</button>
+	<div>
 	ainda nao tem uma conta? Crie <a onclick="location.href='{% url 'register' %}'">aqui.</a>
+	</div>
 </form>
 </div>
 {% endblock %}

@@ -3,22 +3,33 @@
   background: none;
   font-size: 0.8rem;
   padding: 8px;
-  margin-top: 20vh;
+  /*margin-top: 20vh;*/
+  margin-top: 3%;
   max-width: 500px;
 }
 
 .main form {
   display: flex;
   flex-direction: column;
-  max-width: 95%;
+  max-width: 67%;
+  gap: 0.7rem;
   flex-wrap: nowrap;
   align-content: center;
-  align-items: center;
+  /*align-items: center;*/
   width: 100%;
   margin: 0 auto;
 }
 
-.main form input {
+.main form .alert {
+  background: orange;
+  border-radius: 8px;
+}
+
+.main form .alert #form_errors strong ul {
+  list-style: none;
+}
+
+.main form div input {
   width: 100%;
   border: none;
   padding: 8px;
@@ -26,7 +37,7 @@
   outline: none;
 }
 
-.main form input:focus {
+.main form div input:focus {
   border: 2px solid #bebebe;
 }
 
@@ -51,5 +62,6 @@
 }
 
 footer {
+  display: none !important;
   position: absolute !important;
 }
