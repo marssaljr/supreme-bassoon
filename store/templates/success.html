@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'head' %}
+<title>Checkout</title>
+<link rel="stylesheet" href="{% static 'css/delete.css' %}">
+
+{% endblock 'head' %}
+{% block 'main' %}
+<div class="main">
+  <section class="section">
+    <div class="container">
+      <p>Seu pagamento foi realizado com sucesso!</p>
+	  <button  onclick="location.href='{% url 'home' %}'" >Voltar para o Inicio</button>
+    </div>
+  </section>
+</div>
+{% endblock 'main' %}
