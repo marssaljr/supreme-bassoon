@@ -17,4 +17,12 @@ footer {
 						cursor: help;
 				}
 		}
+		button {
+			border-radius: 8px;
+			padding: 8px;
+			border: none;
+			background: orange;
+			font-weight: bold;
+			margin-top: 0.5em;
+		}
 }
