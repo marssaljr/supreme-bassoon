@@ -3,8 +3,10 @@ from django.urls import reverse
 from django.contrib import auth
 from django.contrib.auth.models import User
 from unittest.mock import patch
+
 from user.views import CustomLoginView, delete
 from user.forms import RegisterForm
+from user.models import Profile
 
 
 class UserViewTestCase(TestCase):
@@ -123,6 +125,14 @@ class UserViewTestCase(TestCase):
         res = self.client.post("/user/delete")
         self.assertRedirects(res, "/user/login")
 
+    def test_delete_user_succeed(self):
+        self.client.force_login(self.testUser)
+        profile = Profile.objects.filter(user=self.testUser)
+        user = User.objects.filter(pk=self.testUser.id)
+        res = self.client.post("/user/delete")
+        self.assertEqual(profile.exists(), False)
+        self.assertEqual(user.exists(), False)
+        self.assertEqual(res.context["success"], "ok")
         # https://stackoverflow.com/questions/48968016/django-tests-user-authenticate-fails
 
 
