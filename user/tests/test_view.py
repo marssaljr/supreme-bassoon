@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from unittest.mock import patch
 
 from user.views import CustomLoginView, delete
-from user.forms import RegisterForm
+from user.forms import RegisterForm, UpdateUserForm, UpdateProfileForm
 from user.models import Profile
 
 
@@ -109,6 +109,18 @@ class UserViewTestCase(TestCase):
         user = auth.get_user(self.client)
         self.assertEquals(user.is_authenticated, False)
         self.assertRedirects(res, "/user/login")
+
+    def test_user_profile_returns(self):
+        url = reverse("profile")
+        self.client.force_login(self.testUser)
+        req = self.client.get(url)
+        req.user = self.testUser
+        user_form = UpdateUserForm(instance=req.user)
+        profile_form = UpdateProfileForm(instance=req.user.profile)
+        self.assertEquals(req.context["user_form"].instance, user_form.instance)
+        self.assertEquals(
+            req.context["profile_form"].fields.keys(), profile_form.fields.keys()
+        )
 
     def test_delete_user_page_fails(self):
         url = reverse("delete")
